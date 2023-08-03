@@ -1,12 +1,12 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import Home from './Home';
-import Navbar from './Navbar';
+import NavbarComp from './Navbar';
 
 const Layout = () => {
   return (
     <>
-    <Navbar/>
+    <NavbarComp/>
     <Outlet/>
     <Home/>
     </>

@@ -3,11 +3,11 @@
     padding: 0;
     box-sizing: border-box;
 }
-body{
+/* body{
     background-image: linear-gradient(rgb(255, 236, 228),rgb(234, 238, 255)) ;
     background-repeat: no-repeat;
     height: 100%;
-}
+} */
 .navbar-1{
     box-shadow: 0  0  5px black;
     position: sticky;
