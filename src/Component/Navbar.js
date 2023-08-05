@@ -13,7 +13,7 @@ const NavbarComp = () => {
   const post = useSelector((state) => state.post.posts);
 
   return (
-    <div className="bg-primary p-2 navbar-1 ">
+    <div className="bg-primary p-3 navbar-1 ">
       {/* <Navbar className="bg-body-tertiary justify-content-between"> */}
       <Row className="d-flex align-items-center justify-content-between">
         <Col xs="3">

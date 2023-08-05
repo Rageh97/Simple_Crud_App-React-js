@@ -47,7 +47,7 @@ const Home = () => {
         </div>
       </div>
       {/*  */} <hr></hr>
-      {title ? (
+      {post ? (
       <div className="container mb-5">
       <h4 className="text-center mt-5 mb-5 text-success">All posts</h4>
       <div className="table-products table-responsive">
