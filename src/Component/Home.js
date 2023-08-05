@@ -36,7 +36,7 @@ const Home = () => {
               className="form-control"
             />
           </div>
-          <div className="col-md-3 col-4">
+          <div className="col-md-3 col-7">
             <button
               onClick={() => dispatch(addPost({ id, title, body }))}
               className="w-100 btn btn-primary"
@@ -48,88 +48,88 @@ const Home = () => {
       </div>
       {/*  */} <hr></hr>
       {title ? (
-        <div className="container mb-5">
-          <h4 className="text-center mt-5 mb-5 text-success">All posts</h4>
-          <div className="table-products">
-            <table className="table table-striped border bg-white ">
-              <th className="p-2">Id</th>
-              <th className="p-2">Title</th>
-              <th className="p-2">Description</th>
-              <th className="p-2">Operations</th>
-              <tbody>
-                {post.map((item) => (
-                  <>
-                    <tr key={item.id}>
-                      <td className="p-3 text-success">{item.id}</td>
-                      <td className="p-3">{item.title}</td>
-                      <td className="p-3">{item.body}</td>
-                      <td>
-                        <div
-                          className="btn-group"
-                          role="group"
-                          aria-label="Basic example"
+      <div className="container mb-5">
+      <h4 className="text-center mt-5 mb-5 text-success">All posts</h4>
+      <div className="table-products table-responsive">
+        <table className="table table-striped border bg-white ">
+          <th className="p-2">Id</th>
+          <th className="p-2">Title</th>
+          <th className="p-2">Description</th>
+          <th className="p-2">Operations</th>
+          <tbody>
+            {post.map((item) => (
+              <>
+                <tr key={item.id}>
+                  <td className="p-3 text-success">{item.id}</td>
+                  <td className="p-3">{item.title}</td>
+                  <td className="p-3">{item.body}</td>
+                  <td>
+                    <div
+                      className="btn-group"
+                      role="group"
+                      aria-label="Basic example"
+                    >
+                      <button
+                        onClick={() => dispatch(deletePost(item))}
+                        type="button"
+                        className="btn btn-danger"
+                      >
+                        Delete
+                      </button>
+                      <button
+                        onClick={() => {
+                          setIsUpdate(true);
+                          setId(item.id);
+                        }}
+                        type="button"
+                        className="btn btn-primary"
+                      >
+                        Update
+                      </button>
+                    </div>
+                    {isUpdate && Id == item.id && (
+                      <>
+                        <input
+                          className="form-control me-4 mb-4 mt-4"
+                          type="text"
+                          placeholder="update title"
+                          value={updateTitle}
+                          onChange={(e) => setupdateTitle(e.target.value)}
+                        />
+                        <input
+                          className="form-control me-2"
+                          type="text"
+                          value={updateDescription}
+                          onChange={(e) =>
+                            setupdateDescription(e.target.value)
+                          }
+                          placeholder="update description"
+                        />
+                        <button
+                          className="me-4 mb-4 mt-4 btn btn-dark text-white"
+                          onClick={() => {
+                            dispatch(
+                              updatePost({
+                                id: item.id,
+                                title: updateTitle,
+                                body: updateDescription,
+                              })
+                            );
+                            setIsUpdate(false);
+                          }}
                         >
-                          <button
-                            onClick={() => dispatch(deletePost(item))}
-                            type="button"
-                            className="btn btn-danger"
-                          >
-                            Delete
-                          </button>
-                          <button
-                            onClick={() => {
-                              setIsUpdate(true);
-                              setId(item.id);
-                            }}
-                            type="button"
-                            className="btn btn-primary"
-                          >
-                            Update
-                          </button>
-                        </div>
-                        {isUpdate && Id == item.id && (
-                          <>
-                            <input
-                              className="form-control me-4 mb-4 mt-4"
-                              type="text"
-                              placeholder="update title"
-                              value={updateTitle}
-                              onChange={(e) => setupdateTitle(e.target.value)}
-                            />
-                            <input
-                              className="form-control me-2"
-                              type="text"
-                              value={updateDescription}
-                              onChange={(e) =>
-                                setupdateDescription(e.target.value)
-                              }
-                              placeholder="update description"
-                            />
-                            <button
-                              className="me-4 mb-4 mt-4 btn btn-dark text-white"
-                              onClick={() => {
-                                dispatch(
-                                  updatePost({
-                                    id: item.id,
-                                    title: updateTitle,
-                                    body: updateDescription,
-                                  })
-                                );
-                                setIsUpdate(false);
-                              }}
-                            >
-                              Update
-                            </button>
-                          </>
-                        )}
-                      </td>
-                    </tr>
-                  </>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
+                          Update
+                        </button>
+                      </>
+                    )}
+                  </td>
+                </tr>
+              </>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
       ) : (<div className="text-center text-danger">There's no posts !...</div>)}
     </>
   );

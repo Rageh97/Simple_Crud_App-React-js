@@ -14,7 +14,7 @@ const postSlice = createSlice({
       state.posts = state.posts.filter((item) => item.id !== action.payload.id);
     },
     searchPost: (state, action) => {
-      state.posts = state.posts.filter((post) => post.id === action.payload);
+      state.posts = state.posts.filter((post) => post.id === Number(action.payload));
 
     },
     updatePost: (state, action) => {
